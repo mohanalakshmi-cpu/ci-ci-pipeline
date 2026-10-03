@@ -18,9 +18,9 @@ pipeline {
         stage('Deploy Container') {
             steps {
                 bat '''
-                "%docker%" stop vite-container || echo Container not running
-                "%docker%" rm vite-container || echo Container not found
-                "%docker%" run -d -p 8081:80 --name vite-container vite-app
+                "%DOCKER%" stop vite-container || echo Container not running
+                "%DOCKER%" rm vite-container || echo Container not found
+                "%DOCKER%" run -d -p 8081:80 --name vite-container vite-app
                 '''
             }
         }
